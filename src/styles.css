@@ -21,7 +21,8 @@ a {
 .weather-today,
 .weather-info-column,
 .day-1,
-.day-1-temperature {
+.day-1-temperature,
+.footnote {
   font-family: "PT Serif", serif;
   line-height: 1.8;
 }
@@ -89,4 +90,8 @@ a {
 }
 a:hover {
   color: rgb(145, 192, 241);
+}
+#github-link:hover,
+#linkedin-link:hover {
+  color: #fff;
 }
