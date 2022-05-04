@@ -12,6 +12,7 @@ a {
 }
 .container {
   padding-bottom: 200px;
+  min-width: max-content;
 }
 
 .city-search,
@@ -42,7 +43,8 @@ a {
   padding: 0 5px 5px 5px;
   border: 0.5px solid grey;
   max-width: 100%;
-  margin: auto;
+  margin: 0 auto;
+  word-wrap: normal;
 }
 .city-name {
   font-weight: bold;
@@ -58,7 +60,7 @@ a {
 }
 
 .date {
-  padding-bottom: 7px;
+  padding-bottom: 6px;
 }
 .cloud-rain-emoji-head {
   font-size: 51px;
@@ -66,7 +68,9 @@ a {
 }
 .five-day-weather {
   text-align: center;
-  padding-left: 80px;
+  justify-content: space-evenly;
+  padding: 20px;
+  max-width: 100%;
 }
 .cloud-rain-emoji,
 .cloud-sun-rain-emoji {
