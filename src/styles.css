@@ -57,6 +57,7 @@ a {
 }
 .weather-today {
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .date {

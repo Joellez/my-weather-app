@@ -89,7 +89,7 @@ function showWeather(response) {
     response.data.main.temp
   );
 
-  let description = response.data.weather[0].main;
+  let description = response.data.weather[0].description;
   document.querySelector("#weather-today").innerHTML = description;
 
   let currentCity = response.data.name;
