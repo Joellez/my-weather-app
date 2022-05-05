@@ -49,23 +49,39 @@ a {
 .city-name {
   font-weight: bold;
   font-size: 20px;
+  margin-bottom: 0;
 }
+
+#icon-head {
+  font-size: 51px;
+  margin-left: -4px;
+}
+
 .temperature {
   margin-left: 10px;
   font-size: 30px;
   font-weight: bold;
+  position: relative;
+  top: 15px;
 }
 .weather-today {
   font-weight: bold;
+  font-size: 17px;
 }
 
+.time {
+  font-size: 20px;
+}
 .date {
-  padding-bottom: 6px;
+  padding-top: 12px;
+  padding-bottom: 23px;
+  font-size: 20px;
 }
-.cloud-rain-emoji-head {
-  font-size: 51px;
-  margin-left: -4px;
+
+.more-weather {
+  font-size: 17px;
 }
+
 .five-day-weather {
   text-align: center;
   justify-content: space-evenly;
