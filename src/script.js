@@ -104,6 +104,14 @@ function showWeather(response) {
   document.querySelector(
     "#humidity-answer"
   ).innerHTML = `${response.data.main.humidity}%`;
+
+  // icon changes depending on weather
+  let iconElement = document.querySelector("#icon-head");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(city) {
