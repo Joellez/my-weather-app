@@ -54,7 +54,7 @@ currentDate.innerHTML = `${days} ${ordinalDate} ${months} ${year}`;
 
 function showWeather(response) {
   celsiusTemp = response.data.main.temp;
-  cTempLink.classList.remove("active");
+  cTempLink.classList.add("active");
   fTempLink.classList.remove("active");
 
   document.querySelector("#temp-number").innerHTML = Math.round(celsiusTemp);
