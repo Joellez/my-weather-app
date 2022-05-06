@@ -69,8 +69,9 @@ function showWeather(response) {
   ).innerHTML = `${currentCity}, ${countryCode}`;
 
   document.querySelector("#wind-speed-answer").innerHTML = `${Math.round(
-    response.data.wind.speed
-  )}km/h`;
+    response.data.wind.speed / 1.609
+  )}mph (${Math.round(response.data.wind.speed)}km/h)`;
+
   document.querySelector(
     "#humidity-answer"
   ).innerHTML = `${response.data.main.humidity}%`;
