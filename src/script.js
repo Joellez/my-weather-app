@@ -50,44 +50,14 @@ let ordinalDate = dateOrdinal();
 let year = now.getFullYear();
 currentDate.innerHTML = `${days} ${ordinalDate} ${months} ${year}`;
 
-//search bar
-
-//function handleSubmit(event) {
-// event.preventDefault();
-// let input = document.querySelector("#search-bar");
-// let h1 = document.querySelector("h1");
-// h1.innerHTML = `${input.value}`;
-//}
-
-//let searchButton = document.querySelector("#my-form");
-//searchButton.addEventListener("submit", handleSubmit);
-
-//temperature changer
-
-//function changeTempC(event) {
-// event.preventDefault();
-// let temperature = document.querySelector("#temp-number");
-// temperature.innerHTML = 17;
-//}
-
-//let ctemp = document.querySelector("#c-temp");
-//ctemp.addEventListener("click", changeTempC);
-
-//function changeTempF(event) {
-// event.preventDefault();
-// let temperature = document.querySelector("#temp-number");
-// temperature.innerHTML = 63;
-//}
-
-//let ftemp = document.querySelector("#f-temp");
-//ftemp.addEventListener("click", changeTempF)
-
 //weather API
 
 function showWeather(response) {
-  document.querySelector("#temp-number").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsiusTemp = response.data.main.temp;
+  cTempLink.classList.remove("active");
+  fTempLink.classList.remove("active");
+
+  document.querySelector("#temp-number").innerHTML = Math.round(celsiusTemp);
 
   let description = response.data.weather[0].description;
   document.querySelector("#weather-today").innerHTML = description;
@@ -124,7 +94,7 @@ function searchCity(city) {
 }
 
 function handleSubmit(event) {
-  event.preventDefault();
+  event.preventDefault(); //prevents page from reloading
   let city = document.querySelector("#search-bar").value;
   searchCity(city);
 }
@@ -151,3 +121,32 @@ let currentLocation = document.querySelector("#location-button");
 currentLocation.addEventListener("click", getCurrentLocation);
 
 searchCity("London"); //to search for London on page load
+
+//temp conversion
+
+function changeTempF(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp-number");
+  //remove active class from cTempLink
+  cTempLink.classList.remove("active");
+  fTempLink.classList.add("active");
+  let ftemperature = (celsiusTemp * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(ftemperature);
+}
+
+function changeTempC(event) {
+  event.preventDefault();
+  cTempLink.classList.add("active");
+  fTempLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temp-number");
+
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
+
+let fTempLink = document.querySelector("#f-temp");
+fTempLink.addEventListener("click", changeTempF);
+
+let cTempLink = document.querySelector("#c-temp");
+cTempLink.addEventListener("click", changeTempC);

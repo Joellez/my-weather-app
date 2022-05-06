@@ -64,6 +64,12 @@ a {
   position: relative;
   top: 15px;
 }
+
+.active {
+  color: rgb(145, 192, 241);
+  cursor: default;
+}
+
 .weather-today {
   font-weight: bold;
   font-size: 17px;
