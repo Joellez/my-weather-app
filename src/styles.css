@@ -21,8 +21,8 @@ a {
 .temperature,
 .weather-today,
 .weather-info-column,
-.day-1,
-.day-1-temperature,
+.weather-forecast-day,
+.weather-forecast-temperatures,
 .footnote {
   font-family: "PT Serif", serif;
   line-height: 1.8;
@@ -94,20 +94,26 @@ a {
   padding: 20px;
   max-width: 100%;
 }
-.cloud-rain-emoji,
-.cloud-sun-rain-emoji {
+
+.five-day-icons {
   background: radial-gradient(
     circle at 10% 20%,
     rgb(147, 230, 241) 0%,
     rgb(145, 192, 241) 45.5%
   );
-  font-size: 40px;
   border: 0.5px dotted;
   border-radius: 50%;
   padding: 10px 10px;
+  margin-bottom: 8px;
 }
-.day-1 {
-  margin-top: 10px;
+.weather-forecast-day {
+  font-size: 17px;
+}
+.weather-forecast-temperatures {
+  font-size: 15px;
+}
+.weather-forecast-min-temp {
+  opacity: 0.7;
 }
 
 .btn:hover {
