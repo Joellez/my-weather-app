@@ -50,6 +50,25 @@ let ordinalDate = dateOrdinal();
 let year = now.getFullYear();
 currentDate.innerHTML = `${days} ${ordinalDate} ${months} ${year}`;
 
+//function to change timestamp to day
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  return days[day];
+}
+
 //weather API
 
 function showWeather(response) {
@@ -157,23 +176,33 @@ cTempLink.addEventListener("click", changeTempC);
 //repeat weather code to get 5 day forecast
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   let forecastHTML = `<div class="row five-day-weather">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
             <div class="col-2">
-              <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="75" class="five-day-icons">
-              <div class="weather-forecast-day">${day}</div>
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" alt="" width="75" class="five-day-icons">
+              <div class="weather-forecast-day">${formatDay(
+                forecastDay.dt
+              )}</div>
               <div class="weather-forecast-temperatures">
-                <span class="weather-forecast-max-temp">20°</span>
-                <span class="weather-forecast-min-temp">10°</span>
+                <span class="weather-forecast-max-temp">${Math.round(
+                  forecastDay.temp.max
+                )}°</span>
+                <span class="weather-forecast-min-temp">${Math.round(
+                  forecastDay.temp.min
+                )}</span>
               </div>
             </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
