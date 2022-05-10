@@ -103,7 +103,7 @@ a {
   );
   border: 0.5px dotted;
   border-radius: 50%;
-  padding: 10px 10px;
+  padding: 5px 5px;
   margin-bottom: 8px;
 }
 .weather-forecast-day {
