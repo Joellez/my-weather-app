@@ -83,6 +83,8 @@ function showWeather(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord); //to get 5 day forecast
 }
 
 function searchCity(city) {
@@ -152,9 +154,10 @@ fTempLink.addEventListener("click", changeTempF);
 let cTempLink = document.querySelector("#c-temp");
 cTempLink.addEventListener("click", changeTempC);
 
-//repeat weather code to get 5 day forecast- fake data
+//repeat weather code to get 5 day forecast
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -177,4 +180,12 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
-displayForecast();
+//get forecast from API using coordinates
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "c0f23c2af89da48c0615f7a3012794ef";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
