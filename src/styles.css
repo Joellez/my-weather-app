@@ -88,12 +88,12 @@ a {
   font-size: 17px;
 }
 
-/*to add again when have 5 day forecast on js  .five-day-weather {
+.five-day-weather {
   text-align: center;
   justify-content: space-evenly;
   padding: 20px;
   max-width: 100%;
-} */
+}
 
 .five-day-icons {
   background: radial-gradient(
@@ -107,7 +107,8 @@ a {
   margin-bottom: 8px;
 }
 .weather-forecast-day {
-  font-size: 17px; /* to fix */
+  font-size: 17px;
+  text-align: center;
 }
 .weather-forecast-temperatures {
   font-size: 15px;

@@ -80,7 +80,7 @@ function showWeather(response) {
   let iconElement = document.querySelector("#icon-head");
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
@@ -157,17 +157,24 @@ cTempLink.addEventListener("click", changeTempC);
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
-  forecastElement.innerHTML = `
-     <div class="row">
+  let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let forecastHTML = `<div class="row five-day-weather">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
             <div class="col-2">
               <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="75" class="five-day-icons">
-              <div class="weather-forecast-day">Friday</div>
+              <div class="weather-forecast-day">${day}</div>
               <div class="weather-forecast-temperatures">
                 <span class="weather-forecast-max-temp">20°</span>
                 <span class="weather-forecast-min-temp">10°</span>
               </div>
-            </div>
-          </div>`;
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 displayForecast();
