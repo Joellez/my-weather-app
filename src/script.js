@@ -70,7 +70,7 @@ function showWeather(response) {
 
   document.querySelector("#wind-speed-answer").innerHTML = `${Math.round(
     response.data.wind.speed / 1.609
-  )}mph (${Math.round(response.data.wind.speed)}km/h)`;
+  )} mph (${Math.round(response.data.wind.speed)} km/h)`;
 
   document.querySelector(
     "#humidity-answer"
@@ -151,3 +151,23 @@ fTempLink.addEventListener("click", changeTempF);
 
 let cTempLink = document.querySelector("#c-temp");
 cTempLink.addEventListener("click", changeTempC);
+
+//repeat weather code to get 5 day forecast- fake data
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  forecastElement.innerHTML = `
+     <div class="row">
+            <div class="col-2">
+              <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="75" class="five-day-icons">
+              <div class="weather-forecast-day">Friday</div>
+              <div class="weather-forecast-temperatures">
+                <span class="weather-forecast-max-temp">20°</span>
+                <span class="weather-forecast-min-temp">10°</span>
+              </div>
+            </div>
+          </div>`;
+}
+
+displayForecast();

@@ -107,7 +107,7 @@ a {
   margin-bottom: 8px;
 }
 .weather-forecast-day {
-  font-size: 17px;
+  font-size: 17px; /* to fix */
 }
 .weather-forecast-temperatures {
   font-size: 15px;
